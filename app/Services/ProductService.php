@@ -7,27 +7,24 @@ use Illuminate\Support\Collection;
 
 class ProductService
 {
-    public function __construct(private readonly Product $product)
-    {
-    }
+    public function __construct(private readonly Product $product) {}
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      */
     public function index(
         array $filters = [],
         string $orderBy = 'product',
         string $orderDir = 'asc',
         int $perPage = 15
-    ): Collection
-    {
+    ): Collection {
         $query = $this->product
             ->newQuery()
             ->orderBy($orderBy, $orderDir);
 
         foreach ($filters as $field => $value) {
             match ($field) {
-                'product', 'brand', 'description' => $query->where($field, 'like', '%' . $value . '%'),
+                'product', 'brand', 'description' => $query->where($field, 'like', '%'.$value.'%'),
                 default => $query->where($field, $value),
             };
         }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductDeleteRequest;
-use App\Http\Requests\ProductIndexRequest;
 use App\Http\Requests\ProductFindRequest;
+use App\Http\Requests\ProductIndexRequest;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Services\ProductService;
@@ -12,9 +12,7 @@ use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
-    public function __construct(private readonly ProductService $service)
-    {
-    }
+    public function __construct(private readonly ProductService $service) {}
 
     public function index(ProductIndexRequest $request)
     {

@@ -165,6 +165,14 @@ Rodar um teste específico:
 php artisan test --filter=ProductControllerTest
 ```
 
+## Formatação de código (Laravel Pint)
+
+Para formatar o código com o padrão do Laravel:
+
+```
+./vendor/bin/pint
+```
+
 ## Postman
 
 Importe a coleção `products.postman_collection.json` no Postman para testar as rotas.

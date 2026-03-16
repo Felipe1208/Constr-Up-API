@@ -51,7 +51,7 @@ class ProductControllerTest extends TestCase
         $first = $this->createProduct(['price' => '10.00']);
         $this->createProduct(['price' => '15.00']);
 
-        $response = $this->getJson('/api/product?price=10.00&id=' . $first->id);
+        $response = $this->getJson('/api/product?price=10.00&id='.$first->id);
 
         $response->assertOk();
         $response->assertJsonCount(1);
@@ -94,7 +94,7 @@ class ProductControllerTest extends TestCase
     {
         $product = $this->createProduct(['product' => 'alpha']);
 
-        $response = $this->getJson('/api/product/' . $product->id);
+        $response = $this->getJson('/api/product/'.$product->id);
 
         $response->assertOk();
         $this->assertSame($product->id, $response->json('id'));
@@ -112,7 +112,7 @@ class ProductControllerTest extends TestCase
     {
         $product = $this->createProduct(['product' => 'before']);
 
-        $response = $this->putJson('/api/product/' . $product->id, [
+        $response = $this->putJson('/api/product/'.$product->id, [
             'product' => 'after',
         ]);
 
@@ -136,7 +136,7 @@ class ProductControllerTest extends TestCase
     {
         $product = $this->createProduct();
 
-        $response = $this->deleteJson('/api/product/' . $product->id);
+        $response = $this->deleteJson('/api/product/'.$product->id);
 
         $response->assertOk();
         $response->assertJson(['message' => 'Produto excluído com sucesso.']);

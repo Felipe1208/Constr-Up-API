@@ -72,9 +72,82 @@ php artisan migrate
 php artisan db:seed
 ```
 
+## Instalação e execução (sem Docker)
+
+### Requisitos locais
+
+- PHP 8.2+ com extensões: pdo_mysql, mbstring, bcmath, intl, zip
+- Composer
+- MySQL (opcional, se não usar SQLite)
+
+### Passo a passo
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/Felipe1208/Constr-Up-API.git
+cd Constr-Up-API
+```
+
+2. Copie o arquivo de ambiente:
+
+```
+cp .env.example .env
+```
+
+3. Configure o banco no `.env`:
+
+- **MySQL (local):**
+  - `DB_CONNECTION=mysql`
+  - `DB_HOST=127.0.0.1`
+  - `DB_PORT=3306`
+  - `DB_DATABASE=construp_api`
+  - `DB_USERNAME=seu_usuario`
+  - `DB_PASSWORD=sua_senha`
+
+- **SQLite (mais simples):**
+  - `DB_CONNECTION=sqlite`
+  - `DB_DATABASE=database/database.sqlite`
+  - Crie o arquivo:
+
+```
+touch database/database.sqlite
+```
+
+4. Instale as dependências:
+
+```
+composer install
+```
+
+5. Gere a chave da aplicação:
+
+```
+php artisan key:generate
+```
+
+6. Rode as migrações:
+
+```
+php artisan migrate
+```
+
+7. Popule o banco com dados de exemplo:
+
+```
+php artisan db:seed
+```
+
+8. Inicie o servidor local:
+
+```
+php artisan serve
+```
+
 ## Acessar a API
 
-- API: http://localhost:8080/api
+- Docker: http://localhost:8080/api
+- Local (artisan serve): http://localhost:8000/api
 
 ## Testes
 

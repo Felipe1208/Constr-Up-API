@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "Construp API - Products",
+    "_postman_id": "7f9b1a1f-0a44-4c1a-9c3c-5a9eae7b5c1f",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List products",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/product?per_page=15"
+      }
+    },
+    {
+      "name": "Create product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"Sample product\",\n  \"description\": \"Example description\",\n  \"price\": 10.5,\n  \"stock\": 100\n}"
+        },
+        "url": "http://localhost:8080/api/product"
+      }
+    },
+    {
+      "name": "Get product",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/product/1"
+      }
+    },
+    {
+      "name": "Update product (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"Updated product\",\n  \"description\": \"Updated description\",\n  \"price\": 12.75,\n  \"stock\": 80\n}"
+        },
+        "url": "http://localhost:8080/api/product/1"
+      }
+    },
+    {
+      "name": "Update product (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 15.25\n}"
+        },
+        "url": "http://localhost:8080/api/product/1"
+      }
+    },
+    {
+      "name": "Delete product",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/product/1"
+      }
+    }
+  ],
+  "variable": []
+}

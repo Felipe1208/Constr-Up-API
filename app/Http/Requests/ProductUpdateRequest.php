@@ -15,6 +15,7 @@ class ProductUpdateRequest extends FormRequest
     {
         return [
             'product' => ['sometimes', 'string', 'max:255'],
+            'brand' => ['sometimes', 'string', 'max:255'],
             'description' => ['sometimes', 'nullable', 'string'],
             'price' => ['sometimes', 'numeric', 'min:0'],
             'stock' => ['sometimes', 'integer', 'min:0'],

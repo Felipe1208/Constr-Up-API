@@ -27,7 +27,7 @@ class ProductService
 
         foreach ($filters as $field => $value) {
             match ($field) {
-                'product', 'description' => $query->where($field, 'like', '%' . $value . '%'),
+                'product', 'brand', 'description' => $query->where($field, 'like', '%' . $value . '%'),
                 default => $query->where($field, $value),
             };
         }

@@ -24,7 +24,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"product\": \"Sample product\",\n  \"description\": \"Example description\",\n  \"price\": 10.5,\n  \"stock\": 100\n}"
+          "raw": "{\n  \"product\": \"Sample product\",\n  \"brand\": \"Bosch\",\n  \"description\": \"Example description\",\n  \"price\": 10.5,\n  \"stock\": 100\n}"
         },
         "url": "http://localhost:8080/api/product"
       }
@@ -48,7 +48,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"product\": \"Updated product\",\n  \"description\": \"Updated description\",\n  \"price\": 12.75,\n  \"stock\": 80\n}"
+          "raw": "{\n  \"product\": \"Updated product\",\n  \"brand\": \"Makita\",\n  \"description\": \"Updated description\",\n  \"price\": 12.75,\n  \"stock\": 80\n}"
         },
         "url": "http://localhost:8080/api/product/1"
       }

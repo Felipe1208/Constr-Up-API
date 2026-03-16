@@ -34,6 +34,18 @@ class ProductControllerTest extends TestCase
         $this->assertSame('alpha drill', $response->json('0.product'));
     }
 
+    public function test_index_filters_by_brand(): void
+    {
+        $this->createProduct(['brand' => 'Bosch']);
+        $this->createProduct(['brand' => 'Makita']);
+
+        $response = $this->getJson('/api/product?brand=Bosch');
+
+        $response->assertOk();
+        $response->assertJsonCount(1);
+        $this->assertSame('Bosch', $response->json('0.brand'));
+    }
+
     public function test_index_filters_by_price_and_id(): void
     {
         $first = $this->createProduct(['price' => '10.00']);
@@ -135,6 +147,7 @@ class ProductControllerTest extends TestCase
     {
         $payload = [
             'product' => 'alpha drill',
+            'brand' => 'Bosch',
             'description' => 'premium steel',
             'price' => 10.5,
             'stock' => 100,
@@ -146,6 +159,7 @@ class ProductControllerTest extends TestCase
         $response->assertJsonFragment(['product' => 'alpha drill']);
         $this->assertDatabaseHas('products', [
             'product' => 'alpha drill',
+            'brand' => 'Bosch',
             'stock' => 100,
         ]);
     }
@@ -154,6 +168,7 @@ class ProductControllerTest extends TestCase
     {
         return Product::query()->create(array_merge([
             'product' => 'default product',
+            'brand' => 'default brand',
             'description' => 'default description',
             'price' => '10.00',
             'stock' => 10,

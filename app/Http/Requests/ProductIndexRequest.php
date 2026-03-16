@@ -18,6 +18,7 @@ class ProductIndexRequest extends FormRequest
             'per_page' => ['sometimes', 'integer', 'min:1', 'max:100'],
             'id' => ['sometimes', 'integer', 'min:1'],
             'product' => ['sometimes', 'string', 'max:255'],
+            'brand' => ['sometimes', 'string', 'max:255'],
             'description' => ['sometimes', 'string'],
             'price' => ['sometimes', 'numeric', 'min:0'],
             'order_by' => ['sometimes', 'string', 'in:product,price'],
@@ -50,7 +51,7 @@ class ProductIndexRequest extends FormRequest
     {
         $filters = Arr::only(
             $this->validated(),
-            ['id', 'product', 'description', 'price']
+            ['id', 'product', 'brand', 'description', 'price']
         );
 
         return array_filter(
